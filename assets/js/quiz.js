@@ -6,7 +6,7 @@ var welcome = document.querySelector("#welcome")
 var quiz = document.querySelector("#quiz")
 var results = document.querySelector("#results")
 
-var choices = document.querySelector("#choices")
+var options = document.querySelector("#choices")
 var response = document.querySelector("#response")
 
 var timer = document.querySelector("#timer")
@@ -43,6 +43,31 @@ function onQuizStart() {
     results.style.display = 'none'
 
     displayQuestion()
+}
+
+function displayQuestion() {
+    questionNum++
+
+    console.log("Question number: " + questionNum)
+
+    if (questionNum >= questions.length) {
+        stopQuiz
+        return
+    }
+
+    var question = questions[questionNum]
+    document.querySelector("#question").textContent = question.title
+
+    options.innerHTML = ""
+
+    for (var i = 0; i < question.choices.length; i++) {
+        var choice = document.createElement("div")
+        choice.textContent = question.choices[i]
+        choice.onclick = onSelectAnswer
+        choice.classlist.add("choice")
+
+        options.appendChild(choice)
+    }
 }
 
 startQuiz.addEventListener("click", onQuizStart)
