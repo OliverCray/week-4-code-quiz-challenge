@@ -6,7 +6,7 @@ var welcome = document.querySelector("#welcome")
 var quiz = document.querySelector("#quiz")
 var results = document.querySelector("#results")
 
-var options = document.querySelector("#choices")
+var options = document.querySelector("#options")
 var response = document.querySelector("#response")
 
 var timer = document.querySelector("#timer")
