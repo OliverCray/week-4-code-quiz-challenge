@@ -72,6 +72,7 @@ function displayQuestion() {
 
 function onSelectAnswer(e) {
     var correctAnswer = questions[questionNum].answer
+    console.log(e.target)
     var playerAnswer = e.target.textContent
 
     if (playerAnswer === correctAnswer) {
@@ -85,6 +86,16 @@ function onSelectAnswer(e) {
     }
 
     displayQuestion()
+}
+
+function displayResponse(rsp) {
+    // Display response
+    response.textContent = rsp
+
+    setTimeout(function () {
+        response.textContent = ""
+    }, 1000)
+
 }
 
 startQuiz.addEventListener("click", onQuizStart)
