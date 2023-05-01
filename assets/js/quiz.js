@@ -39,7 +39,7 @@ function onQuizStart() {
     }, 1000)
 
     welcome.style.display = 'none'
-    quiz.style.dispaly = 'flex'
+    quiz.style.display = 'flex'
     results.style.display = 'none'
 
     displayQuestion()
@@ -68,6 +68,23 @@ function displayQuestion() {
 
         options.appendChild(choice)
     }
+}
+
+function onSelectAnswer(e) {
+    var correctAnswer = questions[questionNum].answer
+    var playerAnswer = e.target.textContent
+
+    if (playerAnswer === correctAnswer) {
+        score++
+
+        displayResponse("Correct!")
+    } else {
+        score--
+
+        displayResponse("Wrong!")
+    }
+
+    displayQuestion()
 }
 
 startQuiz.addEventListener("click", onQuizStart)
