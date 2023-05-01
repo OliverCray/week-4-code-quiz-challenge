@@ -1,0 +1,50 @@
+:root {
+    --bg-colour: #65dfcb;
+    --button-colour: #f155a3;
+    --button-colour-clicked: #c04281;
+    --text-colour: #444444;
+    --text-colour-highscores: #2c2c2c;
+    --button-text: #d1f0ed;
+}
+
+body {
+    background-color: var(--bg-colour);
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    width: 70%;
+    height: 100px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.8;
+    color: var(--text-colour);
+}
+
+.button {
+    background-color: var(--button-colour);
+    color: var(--button-text);
+}
+
+.button:active  {
+    background-color: var(--button-colour-clicked);
+}
+
+.hide {
+    display: none;
+}
+
+#highscores a {
+    color: var(--text-colour-highscores);
+    text-decoration: none;
+}
