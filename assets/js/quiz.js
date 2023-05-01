@@ -33,47 +33,18 @@ function stopQuiz() {
     summary.textContent = "Score: " + score
 }
 
-function onQuizStart() {
-    // Set timer to 75 seconds
-    timeRemaining = 75
-
-    // Start at first question
-    questionNum = 0
-
-    // Reset score
-    score = 0
-
-    // Start Timer
-    countdown = setInterval(function () {
-        if (timeRemaining > 0) {
-            timer.textContent = timeRemaining + " seconds remaining"
-        } else {
-            stopQuiz()
-        }
-        timeRemaining--
-    }, 1000)
-
-
-    // Hide other pages and only show quiz page
-    welcome.style.display = 'none'
-    quiz.style.display = 'flex'
-    results.style.display = 'none'
-
-    displayQuestion()
-}
-
 function displayQuestion() {
     questionNum++
 
     console.log("Question number: " + questionNum)
 
     if (questionNum >= questions.length) {
-        stopQuiz
+        stopQuiz()
         return
     }
 
     var question = questions[questionNum]
-    document.querySelector("#question").textContent = question.title
+    document.querySelector("#questions").textContent = question.title
 
     options.innerHTML = ""
 
@@ -81,7 +52,7 @@ function displayQuestion() {
         var choice = document.createElement("div")
         choice.textContent = question.choices[i]
         choice.onclick = onSelectAnswer
-        choice.classlist.add("choice")
+        choice.classList.add("choice")
 
         options.appendChild(choice)
     }
@@ -109,10 +80,40 @@ function displayResponse(rsp) {
     // Display response
     response.textContent = rsp
 
+    // Set response to disappear after 1 second
     setTimeout(function () {
         response.textContent = ""
     }, 1000)
 
+}
+
+function onQuizStart() {
+    // Set timer to 75 seconds
+    timeRemaining = 75
+
+    // Start at first question
+    questionNum = 0
+
+    // Reset score
+    score = 0
+
+    // Start Timer
+    countdown = setInterval(function () {
+        if (timeRemaining > 0) {
+            timer.textContent = timeRemaining + " seconds remaining"
+        } else {
+            stopQuiz()
+        }
+        timeRemaining--
+    }, 1000)
+
+
+    // Hide other pages and only show quiz page
+    welcome.style.display = 'none'
+    quiz.style.display = 'flex'
+    results.style.display = 'none'
+
+    displayQuestion()
 }
 
 startQuiz.addEventListener("click", onQuizStart)
