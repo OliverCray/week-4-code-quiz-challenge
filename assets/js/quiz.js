@@ -18,6 +18,21 @@ var score = 0
 var questionNum = 0
 var countdown
 
+function stopQuiz() {
+    // Stop the timer
+    clearInterval(countdown)
+
+    // Clear timer text content
+    timer.textContent = ""
+
+    // Hide quiz page and show results page
+    quiz.style.display = 'none'
+    results.style.display = 'flex'
+
+    // Display score
+    summary.textContent = "Score: " + score
+}
+
 function onQuizStart() {
     // Set timer to 75 seconds
     timeRemaining = 75
@@ -38,6 +53,8 @@ function onQuizStart() {
         timeRemaining--
     }, 1000)
 
+
+    // Hide other pages and only show quiz page
     welcome.style.display = 'none'
     quiz.style.display = 'flex'
     results.style.display = 'none'
