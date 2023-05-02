@@ -1,5 +1,5 @@
 :root {
-    --bg-colour: #A30B37;
+    --bg-colour: #302e2e;
     --button-colour: #843b62;
     --button-colour-clicked: #c04281;
     --text-colour: #252525;
@@ -7,7 +7,7 @@
     --button-text: #d1f0ed;
     --bg-container: #C6C8EE;
     --box-shadow: 0 0 20px #585656;
-    --text-shadow: 0 0 5px #e02828;
+    --box-shadow-choice: 0 0 5px #da28e0;
 }
 
 body {
@@ -87,9 +87,13 @@ section .button {
 
 .choice {
     transition: 0.12s;
+    border: 2px solid var(--text-colour);
+    border-radius: 5px;
+    padding: 0 3rem 0 3rem;
+    margin: 1rem 0 1rem 0;
 }
 
 .choice:hover {
-    text-shadow: var(--text-shadow);
+    box-shadow: var(--box-shadow-choice);
     transform: scale(1.2);
 }
