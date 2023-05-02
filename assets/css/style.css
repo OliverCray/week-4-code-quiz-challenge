@@ -72,12 +72,12 @@ section .button {
     display: none;
 }
 
-#highscores a {
+a {
     color: var(--text-colour-highscores);
     text-decoration: none;
 }
 
-#highscores a:hover {
+a:hover {
     color: var(--button-text);
 }
 
