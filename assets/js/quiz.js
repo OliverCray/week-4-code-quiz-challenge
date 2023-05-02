@@ -68,7 +68,7 @@ function onSelectAnswer(e) {
 
         displayResponse("Correct!")
     } else {
-        score-= 10
+        score-= 9
         timeRemaining-= 20
         questionNum++
 

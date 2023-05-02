@@ -6,6 +6,8 @@
     --text-colour-highscores: #d4d4d4;
     --button-text: #d1f0ed;
     --bg-container: #C6C8EE;
+    --box-shadow: 0 0 20px #585656;
+    --text-shadow: 0 0 5px #e02828;
 }
 
 body {
@@ -40,6 +42,7 @@ section {
     border-radius: 10px;
     padding: 1rem 2rem 0 2rem;
     margin-top: 10rem;
+    box-shadow: var(--box-shadow);
 }
 
 #results {
@@ -54,6 +57,11 @@ section .button {
     background-color: var(--button-colour);
     color: var(--button-text);
     padding: 0.6rem;
+    transition: 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.1);
 }
 
 .button:active  {
@@ -75,4 +83,13 @@ section .button {
 
 #timer {
     color: var(--button-text);
+}
+
+.choice {
+    transition: 0.12s;
+}
+
+.choice:hover {
+    text-shadow: var(--text-shadow);
+    transform: scale(1.2);
 }
