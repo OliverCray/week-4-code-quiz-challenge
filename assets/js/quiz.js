@@ -5,6 +5,7 @@ var startQuiz = document.querySelector("#startQuiz")
 var welcome = document.querySelector("#welcome")
 var quiz = document.querySelector("#quiz")
 var results = document.querySelector("#results")
+var replayQuiz = document.querySelector("#replay")
 
 var options = document.querySelector("#options")
 var response = document.querySelector("#response")
@@ -118,3 +119,4 @@ function onQuizStart() {
 }
 
 startQuiz.addEventListener("click", onQuizStart)
+replayQuiz.addEventListener("click", onQuizStart)
