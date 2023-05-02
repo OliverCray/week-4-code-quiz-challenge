@@ -62,12 +62,13 @@ function onSelectAnswer(e) {
     var playerAnswer = e.target.textContent
 
     if (playerAnswer === correctAnswer) {
-        score++
+        score+= 20
         questionNum++
 
         displayResponse("Correct!")
     } else {
-        score--
+        score-= 10
+        timeRemaining-= 20
         questionNum++
 
         displayResponse("Wrong!")
