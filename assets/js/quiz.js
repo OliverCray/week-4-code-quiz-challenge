@@ -34,8 +34,6 @@ function stopQuiz() {
 }
 
 function displayQuestion() {
-    questionNum++
-
     console.log("Question number: " + questionNum)
 
     if (questionNum >= questions.length) {
@@ -65,10 +63,12 @@ function onSelectAnswer(e) {
 
     if (playerAnswer === correctAnswer) {
         score++
+        questionNum++
 
         displayResponse("Correct!")
     } else {
         score--
+        questionNum++
 
         displayResponse("Wrong!")
     }
