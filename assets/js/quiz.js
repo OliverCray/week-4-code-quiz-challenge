@@ -2,6 +2,7 @@
 var startQuiz = document.querySelector("#startQuiz")
 var replayQuiz = document.querySelector("#replay")
 var viewHighScores = document.querySelector("#viewHighScores")
+var saveScore = document.querySelector("#save")
 
 // Grab ids of each section and assign to respective variables
 var welcome = document.querySelector("#welcome")
@@ -124,6 +125,16 @@ function onQuizStart() {
     displayQuestion()
 }
 
+function onSaveScore(e) {
+    var playerName = document.querySelector("#playerName").value
+
+    if (playerName !== "") {
+        localStorage.setItem(playerName, score)
+
+        document.querySelector("#playerName").value = ""
+    }
+}
+
 // Opens high scores page in current tab
 function showHighScores() {
     open("highscores.html", "_self")
@@ -132,3 +143,5 @@ function showHighScores() {
 startQuiz.addEventListener("click", onQuizStart)
 replayQuiz.addEventListener("click", onQuizStart)
 viewHighScores.addEventListener("click", showHighScores)
+saveScore.addEventListener("click", onSaveScore)
+
