@@ -1,11 +1,12 @@
 // Grab id of Start Quiz button and assign to a variable
 var startQuiz = document.querySelector("#startQuiz")
+var replayQuiz = document.querySelector("#replay")
+var viewHighScores = document.querySelector("#viewHighScores")
 
 // Grab ids of each section and assign to respective variables
 var welcome = document.querySelector("#welcome")
 var quiz = document.querySelector("#quiz")
 var results = document.querySelector("#results")
-var replayQuiz = document.querySelector("#replay")
 
 var options = document.querySelector("#options")
 var response = document.querySelector("#response")
@@ -13,6 +14,7 @@ var response = document.querySelector("#response")
 var timer = document.querySelector("#timer")
 
 var summary = document.querySelector("#summary")
+
 
 var timeRemaining = 0
 var score = 0
@@ -58,12 +60,16 @@ function displayQuestion() {
 }
 
 function onSelectAnswer(e) {
+    // Search questions for the correct answer
     var correctAnswer = questions[questionNum].answer
     console.log(e.target)
+    // Detects the answer clicked by the player
     var playerAnswer = e.target.textContent
 
+    // Compare the player's answer with the correct answer
     if (playerAnswer === correctAnswer) {
         score+= 20
+        // Increment question number after an answer is clicked
         questionNum++
 
         displayResponse("Correct!")
@@ -118,5 +124,11 @@ function onQuizStart() {
     displayQuestion()
 }
 
+// Opens high scores page in current tab
+function showHighScores() {
+    open("highscores.html", "_self")
+}
+
 startQuiz.addEventListener("click", onQuizStart)
 replayQuiz.addEventListener("click", onQuizStart)
+viewHighScores.addEventListener("click", showHighScores)
