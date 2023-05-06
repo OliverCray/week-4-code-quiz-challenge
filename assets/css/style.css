@@ -1,11 +1,11 @@
 :root {
-    --bg-colour: #302e2e;
-    --button-colour: #843b62;
-    --button-colour-clicked: #c04281;
-    --text-colour: #252525;
-    --text-colour-highscores: #d4d4d4;
-    --button-text: #d1f0ed;
-    --bg-container: #C6C8EE;
+    --bg-colour: #f5f5f5;
+    --button-colour: #b960ec;
+    --button-colour-clicked: #c567fc;
+    --text-colour: #353535;
+    --text-colour-highscores: #c2bfbf;
+    --button-text: #eaf3f1;
+    --bg-container: #f5f5f5;
     --box-shadow: 0 0 20px #585656;
     --box-shadow-choice: 0 0 5px #da28e0;
 }
@@ -57,14 +57,11 @@ section .button {
     background-color: var(--button-colour);
     color: var(--button-text);
     padding: 0.6rem;
-    transition: 0.2s;
-}
-
-.button:hover {
-    transform: scale(1.1);
+    transition: 0.12s;
 }
 
 .button:active  {
+    transform: scale(1.1);
     background-color: var(--button-colour-clicked);
 }
 
@@ -78,11 +75,11 @@ a {
 }
 
 a:hover {
-    color: var(--button-text);
+    color: var(--text-colour);
 }
 
 #timer {
-    color: var(--button-text);
+    color: var(--text-colour);
 }
 
 .choice {
