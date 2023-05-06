@@ -1,3 +1,4 @@
+/* Global styles to be used throughout sheet */
 :root {
     --bg-colour: #f5f5f5;
     --button-colour: #b960ec;
@@ -54,18 +55,16 @@ section {
     min-width: 20%;
 }
 
-section .button {
-    margin: 1rem;
-}
-
 .button {
     display: inline-flex;
     background-color: var(--button-colour);
     color: var(--button-text);
     padding: 0.6rem;
     transition: 0.12s;
+    margin: 1rem;
 }
 
+/* Button grows and changes colour when clicked */
 .button:active  {
     transform: scale(1.1);
     background-color: var(--button-colour-clicked);
@@ -80,6 +79,7 @@ a {
     text-decoration: none;
 }
 
+/* Change text colour on when anchor the cursor on it */
 a:hover {
     color: var(--text-colour);
 }
@@ -112,6 +112,7 @@ a:hover {
     font-size: 2rem;
 }
 
+/* Change page layout based on screen width */
 @media screen and (max-width:992px) {
     header {
         font-size: 1.2rem;

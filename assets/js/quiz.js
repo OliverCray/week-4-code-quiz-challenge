@@ -16,7 +16,7 @@ var timer = document.querySelector("#timer")
 
 var summary = document.querySelector("#summary")
 
-
+// Initial values
 var timeRemaining = 0
 var score = 0
 var questionNum = 0
@@ -33,6 +33,11 @@ function stopQuiz() {
     quiz.style.display = 'none'
     results.style.display = 'flex'
 
+    // Stops scores being negative
+    if (score < 0) {
+        score = 0
+    }
+
     // Display score
     summary.textContent = "Score: " + score
 }
@@ -40,16 +45,19 @@ function stopQuiz() {
 function displayQuestion() {
     console.log("Question number: " + questionNum)
 
+    // Stops the quiz once all questions have been answered
     if (questionNum >= questions.length) {
         stopQuiz()
         return
     }
 
+    // Selects correct question title for the value of questionNum, e.g. questionNum = 0 will select question 1
     var question = questions[questionNum]
     document.querySelector("#questions").textContent = question.title
 
     options.innerHTML = ""
 
+    // Generates appropriate choices for each question
     for (var i = 0; i < question.choices.length; i++) {
         var choice = document.createElement("div")
         choice.textContent = question.choices[i]
@@ -129,8 +137,10 @@ function onSaveScore(e) {
     var playerName = document.querySelector("#playerName").value
 
     if (playerName !== "") {
+        // Set name and score into local storage if the text box is filled
         localStorage.setItem(playerName, score)
 
+        // Empty the text box
         document.querySelector("#playerName").value = ""
     }
 }
@@ -140,6 +150,7 @@ function showHighScores() {
     open("highscores.html", "_self")
 }
 
+// Executes a function when corresponding button is clicked
 startQuiz.addEventListener("click", onQuizStart)
 replayQuiz.addEventListener("click", onQuizStart)
 viewHighScores.addEventListener("click", showHighScores)
