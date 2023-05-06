@@ -1,21 +1,20 @@
 var scoresheet = document.querySelector("#scoresheet")
 var clearScore = document.querySelector("#clear")
 
-// Adds each Name and corresponding score to the High Scores page form local storage
-for (var i = 0; i < localStorage.length; i++) {
-    // Grab player's name and their score out of local storage
-    var playerName = localStorage.key(i)
-    var score = localStorage.getItem(playerName)
+var highScores = JSON.parse(localStorage.getItem("highScores")) || []
 
-    // Creates high scores entries in html and appends them
-    var result = document.createElement("div")
-    result.classList.add('result')
+console.log(highScores)
 
-    result.innerHTML = `<div class="highScore">${playerName}</div>
-                        <div class="highScore">${score}</div>` 
+var result = document.createElement("div")
+result.classList.add('result')
 
-    scoresheet.appendChild(result)
-}
+result.innerHTML = highScores.map(score => {
+    return `<div class="highScore">${score.name}</div>
+            <div class="highScore">${score.score}</div>`
+  })
+  .join('')
+  
+scoresheet.appendChild(result)
 
 // Clears local storage and reloads the page
 function clearHighScores() {

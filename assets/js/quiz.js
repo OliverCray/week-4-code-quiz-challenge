@@ -18,7 +18,7 @@ var summary = document.querySelector("#summary")
 
 // Initial values
 var timeRemaining = 0
-var score = 0
+var currentScore = 0
 var questionNum = 0
 var countdown
 
@@ -33,13 +33,16 @@ function stopQuiz() {
     quiz.style.display = 'none'
     results.style.display = 'flex'
 
-    // Stops scores being negative
-    if (score < 0) {
-        score = 0
+    // Stops scores being negative 
+    
+    if (currentScore < 0) {
+        currentScore = 0
     }
 
+    localStorage.setItem("playerScore", currentScore)
+
     // Display score
-    summary.textContent = "Score: " + score
+    summary.textContent = "Score: " + currentScore
 }
 
 function displayQuestion() {
@@ -77,13 +80,15 @@ function onSelectAnswer(e) {
 
     // Compare the player's answer with the correct answer
     if (playerAnswer === correctAnswer) {
-        score+= 20
+        currentScore+= 20
+        localStorage.setItem("playerScore", currentScore)
         // Increment question number after an answer is clicked
         questionNum++
 
         displayResponse("Correct!")
     } else {
-        score-= 9
+        currentScore-= 9
+        localStorage.setItem("playerScore", currentScore)
         timeRemaining-= 20
         questionNum++
 
@@ -112,7 +117,7 @@ function onQuizStart() {
     questionNum = 0
 
     // Reset score
-    score = 0
+    currentScore = 0
 
     // Start Timer
     countdown = setInterval(function () {
@@ -135,10 +140,21 @@ function onQuizStart() {
 
 function onSaveScore(e) {
     var playerName = document.querySelector("#playerName").value
+    var playerScore = localStorage.getItem("playerScore")
+
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || []
 
     if (playerName !== "") {
         // Set name and score into local storage if the text box is filled
-        localStorage.setItem(playerName, score)
+        var score = {
+            score: playerScore,
+            name: playerName
+        } 
+
+        highScores.push(score)
+        highScores.sort((a,b) => b.score - a.score)
+
+        localStorage.setItem('highScores', JSON.stringify(highScores));
 
         // Empty the text box
         document.querySelector("#playerName").value = ""
