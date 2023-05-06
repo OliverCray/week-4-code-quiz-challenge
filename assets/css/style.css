@@ -23,6 +23,7 @@ header {
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
+    font-size: 1.5rem;
 }
 
 main {
@@ -32,6 +33,7 @@ main {
     align-items: center;
     line-height: 2;
     color: var(--text-colour);
+    font-size: 1.4rem;
 }
 
 section {
@@ -41,8 +43,11 @@ section {
     background-color: var(--bg-container);
     border-radius: 10px;
     padding: 1rem 2rem 0 2rem;
-    margin-top: 10rem;
     box-shadow: var(--box-shadow);
+    min-width: 40%;
+    max-width: 80%;
+    max-height: 100vh;
+    margin-top: 10%;
 }
 
 #results {
@@ -54,6 +59,7 @@ section .button {
 }
 
 .button {
+    display: inline-flex;
     background-color: var(--button-colour);
     color: var(--button-text);
     padding: 0.6rem;
@@ -98,4 +104,41 @@ a:hover {
 #response {
     font-size: 1.2rem;
     font-style: italic;
+}
+
+.result {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+@media screen and (max-width:992px) {
+    header {
+        font-size: 1.2rem;
+    }
+
+    section {
+        max-width: 80%;
+        font-size: 1.2rem;
+    }
+
+    .result {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    header {
+        font-size: 0.7rem;
+    }
+
+    section {
+        max-width: 80%;
+        font-size: 0.9rem;
+    }
+
+    .result {
+        font-size: 1.2rem;
+    }
+
 }
