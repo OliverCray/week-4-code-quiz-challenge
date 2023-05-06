@@ -48,4 +48,4 @@ THEN I can save my initials and my score
 
 ## Deployed Webpage
 
-The published page is available here:
+The published page is available here: https://olivercray.github.io/week-4-code-quiz-challenge/
