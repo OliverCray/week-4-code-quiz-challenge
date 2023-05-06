@@ -64,9 +64,9 @@ section {
     margin: 1rem;
 }
 
-/* Button grows and changes colour when clicked */
-.button:active  {
-    transform: scale(1.1);
+/* Button grows and changes colour when hovering over it */
+.button:hover  {
+    transform: scale(1.1) translateY(-0.1rem);
     background-color: var(--button-colour-clicked);
 }
 
@@ -79,7 +79,6 @@ a {
     text-decoration: none;
 }
 
-/* Change text colour on when anchor the cursor on it */
 a:hover {
     color: var(--text-colour);
 }
@@ -98,7 +97,7 @@ a:hover {
 
 .choice:hover {
     box-shadow: var(--box-shadow-choice);
-    transform: scale(1.2);
+    transform: scale(1.2) translateY(-0.1rem);
 }
 
 #response {
